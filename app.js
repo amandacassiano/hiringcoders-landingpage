@@ -1,16 +1,12 @@
 function verifica() {
-    if (document.forms[0].email.value.length == 0) {
-      alert('Por favor, informe o seu EMAIL.');
-      document.formEnvia.email.focus();
-      return false;
-    }
-    return true;
-  }
-   
-  function checarEmail(){
-  if( document.forms[0].email.value=="" );
-      {
-         alert( "Por favor, informe um E-MAIL válido!" );
-         return false;
-      }
-  }
+  let email = document.querySelector('.digite').value;
+
+    if (email == null || email == "") return
+  
+  if (localStorage.getItem(email)) {
+    alert("E-mail já cadastrado!");
+} else {
+    localStorage.setItem(email, "gravado");
+    alert("Cadastro realizado com sucesso!")
+}
+}
